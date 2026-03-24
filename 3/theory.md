@@ -97,7 +97,7 @@ glutDisplayFunc(RenderScene);
 
 ---
 
-Open GL Command Flow  
+## Open GL Command Flow  
 CPU -> Driver -> GPU -> Framebuffer -> Display(Monitor)  
 1. CPU : 우리가 Open GL 함수 호출  
 2. Driver : Open GL 명령을 GPU 가 이해할 수 있게 변환  
