@@ -33,13 +33,28 @@ int main(int argc, char** argv){
 }
 ```
 
-오류 ? 출력창 초기 실행시 검정 화면만 출력 or 흰색 화면만 출력 (초기샛팅값=파란색 임에도 불구하고)  
+## ❔ 오류 ❔ 출력창 초기 실행 시, 검정/흰 화면만 출력 (초기샛팅값=파란색 임에도 불구하고)  
 
-가정 : GPU 혹은 OS종류 및 버전에 따라 더블 버퍼를 기본값으로 사용하는 경우  
+<br>  
 
-해결 :  
+####  💁‍♀️ 가정 : GPU 혹은 OS종류 및 버전에 따라 더블 버퍼를 기본값으로 사용하는 경우  
 
-glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  →  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-glFlush();  →  glutSwapBuffers();
+<br>
 
-glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); -> glFinish();
+✅ 해결  
+
+본인은 더블 버퍼가 기본값인 경우 임  
+
+> glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);  →  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);  
+
+또, 더블 버퍼에서는 glFlush(); 대신에 glutSwapBuffers(); 를 사용함  
+
+> glFlush();  →  glutSwapBuffers();  
+
+<br>
+
+✏️ 참고  
+
+만약, 싱글 버퍼가 기본값인 경우,  
+
+> glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); 와 glFinish(); 를 씀
