@@ -28,7 +28,7 @@ glRectf(-0.5f, -0.5f, 0.5f, 0.5f);
 ```c++
 glOrtho(-1,1,-1,1,-1,1)
 ```
-`glOrtho(left, right, bottom, top, near, far)` : 2D 직교 투영 좌표계를 설정하 함수  
+`glOrtho(left, right, bottom, top, near, far)` : 2D 직교 투영 좌표계를 설정하는 함수  
 #### glOrtho(left, right, bottom, top, near, far)
 - x : -1 ~ 1 / y = -1 ~ 1
 - 일반적으로 직교 투영으로 [-1, 1] 범위 내에서 작동
@@ -39,30 +39,33 @@ glOrtho(-1,1,-1,1,-1,1)
 ●●●●●●●●●●●이건멀까염 Near<far
 
 
--> glOrtho(-1,1,-1,1,-1,1) 공간에 정사각형glRectf(-0.5f, 0.5f, 0.5f, -0.5f);을 그렸는데,  
-결과는 왜 정사각형이 아니고 직사각형으로 찌그러져서 나오는걸까?
-왜냐하면  
+-> glOrtho(-1, 1, -1, 1, -1, 1) 공간에 정사각형 glRectf(-0.5f, 0.5f, 0.5f, -0.5f);을 그렸는데,  
+결과는 왜 정사각형이 아니고 직사각형으로 찌그러져서 나오는걸까?  
+
+왜냐하면    
 내가 강제로 출력창을 직사각형으로 만들었기 때문이다. glutInitWindowSize(640, 480);  
-창의 비율 -> 640 : 480 = 4: 3
-좌표계는 정사각형 / 창은 직사각형 / 따라서 정사각형이 직사각형 창에 맞게 찌그러져서 들어간거임
-해결
-glutInitWindowSize(640, 480); -> glutInitWindowSize(500, 500); 으로 변경하면 됨
-창을 정사각형으로 맞춘거임
+창의 비율 -> 640 : 480 = 4: 3  
+좌표계는 정사각형, 창은 직사각형 / 따라서 정사각형이 직사각형 창에 맞게 찌그러져서 들어간거임  
+
+해결  
+glutInitWindowSize(640, 480); -> glutInitWindowSize(500, 500); 으로 변경하면 됨  
+창을 정사각형으로 맞춘거임  
 
 더 정확한 방법이 있음
-●●●●●glViewport(GLint x, GLint y, GLsizei width, GLsizei height)  라는 게 있음
-●●●●●glViewport(x, y, width, height);
-●●●●●  (x, y) :왼아래점
-●●●●● 이 점박이 파트 gpt에 물어봐서 보강
+glViewport(GLint x, GLint y, GLsizei width, GLsizei height)  라는 게 있음  
+glViewport(x, y, width, height); : x, y = 시작점 (왼쪽 아래) / width, height = 출력 크기  
+좌표계를 실제 화면에 매핑하는 영역을 설정하는 함  
 
+ex) glViewport(0, 0, 500, 500);  
+시작점: 왼쪽 아래 (0,0)  
+크기: 500 x 500
 
-glViewport(0, 0, 500, 500); 쓰면 됨 근데 이게뭐냐면 (일단 무슨 뜻이냐면, 시작점: 왼쪽 아래 (0,0) / 크기: 500 x 500 라는 뜻) / 좌표계를 실제 화면에 매핑하는 영역을 설정하는 함
-glViewport(x, y, width, height); : x, y = 시작점 (왼쪽 아래) / width, height = 출력 크기
-glViewport()의 default값은 glutInitWindowSize와 같음. 기본적으로 창 전체 영역으로 설정되어있다는 말임.
+glViewport()의 default값은 glutInitWindowSize와 같음  
+기본적으로 창 전체 영역으로 설정되어있다는 말임.
 뭔 말이냐면 기본적으로 창 전체에 그림을 꽉 채운다는 말.
 glViewport()는 일반적으로 glutInitWindowSize와 동일하게 많이 설정.
 glutInitWindowSize(500, 500); 👉 창의 크기 자체를 설정 (모니터에 보이는 창 크기)->창 크기 = 500x500
-glViewport(0,0,500,500); 👉 그 창 안에서 실제로 그림을 그릴 영역 설정->구리는 영역도 = 500x500
+glViewport(0,0,500,500); 👉 그 창 안에서 실제로 그림을 그릴 영역 설정->그리는 영역도 = 500x500
 즉, 창 전체를 다 사용
 왜?
 "창 전체에 꽉 차게 그림을 그리고 싶으니까."
