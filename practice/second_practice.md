@@ -1,5 +1,5 @@
 # 빨간 네모 그리기 (glRectf, )
-<img width="20%" alt="image" src="https://github.com/user-attachments/assets/0b1ef42f-3fae-43ff-8104-810ca405dd05" /> ← 결과물
+<img width="20%" alt="image" src="https://github.com/user-attachments/assets/df541e71-3d60-4239-8c38-a5327a6a7d42" /> ← 결과물
 
 ```c++
 #include <gl/glut.h>
@@ -70,6 +70,8 @@ glutInitWindowSize(500, 500); 일 때,
 |:---------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|  
 | glViewport(0, 0, 250, 250);       | <img width="20%" alt="image" src="https://github.com/user-attachments/assets/e1f128ec-97a4-4d32-b99d-c5b3ae38d526" />   |  
 | glViewport(100, 100, 300, 300);   | <img width="20%" alt="image" src="https://github.com/user-attachments/assets/d28fa455-70f1-4209-a088-e7454f0ebb96" />   |
+
+<img width="20%" alt="image" src="https://github.com/user-attachments/assets/c8a2c1ab-e281-47aa-8f15-52559f779be5" /> ← 결과물
 
 ```c++
 #include <gl/glut.h>
