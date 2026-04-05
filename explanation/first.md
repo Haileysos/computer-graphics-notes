@@ -3,7 +3,7 @@
 ```c++
 glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 ```  
-`glutInitDisplayMode()` : 창의 표시 방식(display mode)을 초기 설정하는 함수
+: 창의 표시 방식(display mode)을 초기 설정하는 함수  
 
 `GLUT_SINGLE` : 싱글 버퍼 사용 → 버퍼를 하나만 사용하는 방식  
 `GLUT_DOUBLE` : 더블 버퍼 사용 → 버퍼를 두 개 사용하는 방식  
@@ -24,12 +24,20 @@ glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 
 <br><br><br>
 
+###	glutInitWindowSize(500, 500); 
+```c++
+glutInitWindowSize(500, 500); 
+```  
+: 창의 크기 자체를 설정 (모니터에 보이는 창의 크기)  
+- 창의 크기 500x500  
+
+<br><br><br>
+
 ###	SetupRC();
 ```c++
 SetupRC();
 ```  
-`SetupRC();` : 렌더링 전에 필요한 Open GL 초기화  
-#### SetupRC();
+: 렌더링 전에 필요한 Open GL 초기화  
 - Open GL 에서 제공하는 함수가 아님. 우리가 만든 그냥 함수 (함수 이름 변경 가능)  
 - Open GL 은 상태 기반(State Machine)이라 “미리 설정해둔 값”을 기준으로 그림을 그림  
 - 그래서 그리기 전에 환경세팅을 해줘야 함 (배경색/조명/색상 등)  
@@ -41,8 +49,7 @@ SetupRC();
 ```c++
 glutMainLoop();
 ```
-`glutMainLoop();` : GLUT 프레임웍 실행  
-#### glutMainLoop();
+: GLUT 프레임웍 실행  
 - 프로그램이 본격적으로 시작
 - 프로그램이 종료될 때까지 운영체제에 관련된 event loop 수행
 - 키보드 입력, 마우스 입력, 창 크기 변경 등의 event 감지 → 해당 event 에 연결된 콜백 함수 호출
@@ -50,12 +57,11 @@ glutMainLoop();
 
 <br><br><br>
 
-###	glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+###	glClearColor(R, G, B, A);
 ```c++
 glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 ```
-`glClearColor(R, G, B, A);` : 화면을 지울 어떤 색으로 지울지 "색을 결정"하는 함수
-#### glClearColor(R, G, B, A);
+: 화면을 지울 어떤 색으로 지울지 "색을 결정"하는 함수  
 - 어떤색으로 초기화 할 지 결정  
 - ★ 실제로 화면을 지우기 위해서는 glClear 을 호출해야 함 ★  
 
@@ -65,8 +71,7 @@ glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 ```c++
 glClear(GL_COLOR_BUFFER_BIT);
 ```
-`glClear(GL_COLOR_BUFFER_BIT);` : 버퍼를 초기화하는 함수  
-#### glClear(GL_COLOR_BUFFER_BIT);
+: 버퍼를 초기화하는 함수  
 - 전체 화면(버퍼)에 있는 내용을 전부 지운다 (초기화)
 
 <br><br><br>
@@ -75,8 +80,7 @@ glClear(GL_COLOR_BUFFER_BIT);
 ```c++
 glFlush();
 ```
-`glFlush();` : Open GL 명령을 실제로 실행하도록 GPU 에 전달하는 함수 
-#### glFlush();
+: Open GL 명령을 실제로 실행하도록 GPU 에 전달하는 함수 
 - 지금까지 내가 호출한 Open GL 명령들을 드라이버 안에만 쌓아두지 말고, GPU 가 실제로 보기 시작 할 수 있는 쪽으로 보내줌
 - 명령이 GPU 로 전달되어 실행이 시작되도록 보장 (비동기)
 - Open GL은 바로 실행되지 않고 명령이 큐(queue)에 쌓였다가 처리되기 때문임
@@ -89,8 +93,7 @@ glFlush();
 ```c++
 glutDisplayFunc(RenderScene); 
 ```
-`glutDisplayFunc(func);` : 화면을 그리는 함수(RenderScene)를 호출하는 콜백 함수
-#### glutDisplayFunc(func);
+: 화면을 그리는 함수(RenderScene)를 호출하는 콜백 함수  
 - 프로그램 시작 직후 (창 처음 생성될 때) / 창의 이동,크기 변경 시 호출됨  
 
 <br><br><br>
