@@ -22,29 +22,28 @@ void RenderScene(void) {
 	glutSwapBuffers();
 }
 
-// ChangeSize 함수 추가!!!
-void ChangeSize(GLsizei w, GLsizei h) {
+void ChangeSize(GLsizei w, GLsizei h) { // 1 
 
-	GLint wSize = 100;
-	GLfloat aspectRatio;
+	GLint wSize = 100; // 2
+	GLfloat aspectRatio; // 3
 
-	if (h == 0)
+	if (h == 0) // 4
 		h = 1;
 
-	glViewport(0, 0, w, h);
+	glViewport(0, 0, w, h); // 5 
 
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+	glMatrixMode(GL_PROJECTION); // 6
+	glLoadIdentity(); // 7
 
 	// (left, right, bottom, top, near, far)
-	aspectRatio = (GLfloat)w / (GLfloat)h;
-	if (w <= h)
-		glOrtho(-wSize, wSize, -wSize / aspectRatio, wSize / aspectRatio, -1, 1);
-	else
-		glOrtho(-wSize * aspectRatio, wSize * aspectRatio, -wSize, wSize, -1, 1);
+	aspectRatio = (GLfloat)w / (GLfloat)h; // 8
+	if (w <= h) // 9
+		glOrtho(-wSize, wSize, -wSize / aspectRatio, wSize / aspectRatio, -1, 1); // 10
+	else // 11
+		glOrtho(-wSize * aspectRatio, wSize * aspectRatio, -wSize, wSize, -1, 1); // 12
 
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	glMatrixMode(GL_MODELVIEW); // 13
+	glLoadIdentity(); // 14
 }
 
 void SetupRC(void) {
@@ -69,3 +68,13 @@ int main(int argc, char** argv) {
 
 ```
 <br><br><br>
+켜자마자  
+<img width="638" height="675" alt="image" src="https://github.com/user-attachments/assets/198e23a0-3586-4da0-8236-18eb451a8f71" />  
+
+가로로 늘리면?  
+<img width="1132" height="659" alt="image" src="https://github.com/user-attachments/assets/23748f54-1915-4ae7-a6d3-4794c345276a" />  
+
+세로로 늘리면?  
+
+
+
