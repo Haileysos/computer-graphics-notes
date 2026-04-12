@@ -68,13 +68,11 @@ int main(int argc, char** argv) {
 
 ```
 <br><br><br>
-켜자마자  
-<img width="638" height="675" alt="image" src="https://github.com/user-attachments/assets/198e23a0-3586-4da0-8236-18eb451a8f71" />  
 
-가로로 늘리면?  
-<img width="1132" height="659" alt="image" src="https://github.com/user-attachments/assets/23748f54-1915-4ae7-a6d3-4794c345276a" />  
+|   |   |
+|---|---|
+| 켜자마자 | <img width="20%" alt="image" src="https://github.com/user-attachments/assets/198e23a0-3586-4da0-8236-18eb451a8f71" /> |
+| 가로로 늘리면? | <img width="40%" alt="image" src="https://github.com/user-attachments/assets/23748f54-1915-4ae7-a6d3-4794c345276a" /> |
+| 세로로 늘리면? | <img width="20%" alt="image" src="https://github.com/user-attachments/assets/0435d1b6-640c-46f4-8bae-19788eab48f9" /> |
 
-세로로 늘리면?  
-
-
-
+<br><br><br>
