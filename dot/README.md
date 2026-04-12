@@ -17,6 +17,7 @@ glVertex3f(0.0f, 0.0f, 0.0f);	// 점을 지정한다.
 glVertex3f(50.0f, 50.0f, 50.0f); // 또 다른 점을 지정한다.
 ```
 <br>
+
 ### `glPointSize(GLfloat크기)`  
 - 점의 크기 변경
 
