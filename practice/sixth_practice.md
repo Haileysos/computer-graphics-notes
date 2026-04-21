@@ -13,9 +13,8 @@
 
 void RenderScene(void) {
 
-	std::cout << "RenderScene" << std::endl;
-
 	glClear(GL_COLOR_BUFFER_BIT);
+
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glRectf(-0.25f, 0.25f, 0.25f, -0.25f); 
 
@@ -58,10 +57,9 @@ int main(int argc, char** argv) {
 	glutInitWindowPosition(400, 400);
 	glutCreateWindow("simple");
 
-	glutDisplayFunc(RenderScene);
-	glutReshapeFunc(ChangeSize); // 추가!!!
-
 	SetupRC();
+	glutDisplayFunc(RenderScene);
+	glutReshapeFunc(ChangeSize); // 추가!!
 
 	glutMainLoop();
 }
