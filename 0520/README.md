@@ -1,7 +1,7 @@
 
 0519-3.cpp 에서는 일반키(adwx)로 좌우위아래 움직이게 한 것
 
-0520.cpp 에서는 특수키 할게여
+0520.cpp 에서는 특수키로 회전시키는 거 할게여
 ```c++
 GLfloat xRot = 0.0f;
 GLfloat yRot = 0.0f;
@@ -28,19 +28,24 @@ void SpecialKey(int key, int x, int y) {
 
 	glutPostRedisplay();
 }
+```
 ```c++
 void RenderScene(void) {
     ....
 	glPushMatrix();
-	glTranslatef(xTran, yTran, 0.0f);
-  glPopMatrix();
-```c++
-```
 
-int main에 추가하기
-```c++
-glutSpecialFunc(SpecialKey); // 특수키
+	glRotatef(xRot, 1.0f, 0.0f, 0.0f);
+	glRotatef(yRot, 0.0f, 1.0f, 0.0f);
+
+ 	glPopMatrix();
 ```
+```c++
+int main(int argc, char** argv) {
+	....
+	glutSpecialFunc(SpecialKey); // 특수키
+}
+```
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 ㅡㅡ
 그린 원을 앞면과 뒷면의 색을 다르게 만들어 보자 (각자알아서 해보기)
@@ -63,16 +68,3 @@ glutSpecialFunc(SpecialKey); // 특수키
 		glEnable(GL_CULL_FACE);
 	else
 		glDisable(GL_CULL_FACE);
-
-
-
-
-밑면은 
-
-
-여기서 원뿔을 그리는 게 과제야.
-내 아이디어는 z축의 - 방향(x,y 는 0,0인)에 점을 찍으면 원뿔이 만들어진다고 생각
-
-rotation 하면 뒤로 가려지는 부분은 안보여야 하는데 지금 그런거 상관없이 계속 모든 면이 보여서 이게 3d원뿔처럼 안느껴지는게 문제야 해결해줘
-
-다시 처음으로 돌아가서.
