@@ -28,9 +28,10 @@ void SpecialKey(int key, int x, int y) {
 
 	glutPostRedisplay();
 }
-```
+```c++
+void RenderScene(void) {
+    ....
 	glPushMatrix();
-
 	glTranslatef(xTran, yTran, 0.0f);
   glPopMatrix();
 ```c++
